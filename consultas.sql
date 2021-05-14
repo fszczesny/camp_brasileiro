@@ -1,0 +1,1 @@
+-- Arquivo pra adicionar as consultas que iremos criar para a etapa 2 do trabalho
