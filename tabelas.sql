@@ -1,3 +1,7 @@
+drop view DadosJogador;
+drop view DadosTecnico;
+drop view DadosAuxiliarTecnico;
+drop view DadosArbrito;
 drop table if EXISTS estatisticas;
 drop table if EXISTS partida;
 drop table if EXISTS dm;
@@ -162,7 +166,8 @@ CREATE TABLE Estatisticas
  imped_mand SMALLINT not NULL DEFAULT 0,  
  imped_visit SMALLINT not NULL DEFAULT 0,  
  escanteio_mand SMALLINT not NULL DEFAULT 0,  
- escanteio_visit SMALLINT not NULL DEFAULT 0,  
+ escanteio_visit SMALLINT not NULL DEFAULT 0,
+ publico INT not NULL DEFAULT 5000,
  id_partida INTEGER not NULL,
  FOREIGN KEY(id_partida) REFERENCES Partida (id_partida)
  	on DELETE CASCADE
