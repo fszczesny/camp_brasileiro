@@ -8,7 +8,7 @@
 -- Listar lideres em cartões amarelos - OK
 -- Listar jogadores com maior número de partidas jogadas - OK
 -- Exibe todas partidas - OK
--- Exibe todas partidas de um determinado time - TODO
+-- Exibe todas partidas de um determinado time - OK
 -- Exibe melhor visitante - TODO
 -- Exibe melhor mandante - TODO
 -- Exibe pior visitante - TODO
@@ -17,7 +17,7 @@
 -- Consulta comissão tecnica de determinado time - TODO
 -- Exibe publico das partidas - OK
 -- Consulta estatistica das partidas que tiveram jogadores explusos - OK
--- Exibe jogadores de determinado time no dpt médico - TODO
+-- Exibe jogadores de determinado time no dpt médico - OK
 -- Exibe número de jogadores de cada time no dpt médico - OK
 -- Exibe os times que tem mais de N jogadores no dpt - OK
 
@@ -28,6 +28,9 @@ SELECT T.nome, count(D.nome) FROM dadosjogador D INNER JOIN "time" T ON D.id_tim
 -- Retorna nome do time com mais de N = 2 jogadores no DM
 SELECT T.nome FROM dadosjogador D INNER JOIN "time" T ON D.id_time = T.id_time NATURAL JOIN dm m GROUP BY T.id_time HAVING COUNT(D.nome) > 2;
 
+-- Retorna os jogadores de determinado time no DM
+SELECT DJ.nome, DP.lesao, DP.data_lesao, DP.previsao_dias FROM dm DP INNER JOIN dadosjogador DJ ON DJ.id_jogador = DP.id_jogador INNER JOIN "time" T on T.id_time = DJ.id_time WHERE t.nome = 'Grêmio';
+
 -- Retorna os dados das partidas que tiveram jogadores expulsos
 SELECT * from partida WHERE NOT EXISTS (SELECT * FROM partida NATURAL JOIN estatisticas WHERE cartoes_vermelhos_mand <> 0 OR cartoes_vermelhos_visit <> 0)
 
@@ -36,6 +39,9 @@ SELECT ES.apelido, E.publico, T1.nome, T2.nome, P.data_partida FROM estatisticas
 
 -- Exibe historico de partidas
 SELECT T1.nome, p.gols_mandante, T2.nome, p.gols_visitante, P.data_partida FROM estatisticas E INNER JOIN partida P ON P.id_partida = E.id_partida INNER JOIN "time" T1 on T1.id_time = P.time_mandante INNER JOIN "time" T2 ON T2.id_time = p.time_visitante ORDER BY P.data_partida asc;
+
+-- Exibe historico de partidas de determinado time
+SELECT T1.nome, p.gols_mandante, T2.nome, p.gols_visitante, P.data_partida FROM estatisticas E INNER JOIN partida P ON P.id_partida = E.id_partida INNER JOIN "time" T1 on T1.id_time = P.time_mandante INNER JOIN "time" T2 ON T2.id_time = p.time_visitante WHERE T1.nome = 'Inter' OR T2.nome = 'Inter' ORDER BY P.data_partida asc;
 
 
 -- Consultas Extras para funcionalidades basicas
