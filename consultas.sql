@@ -5,7 +5,7 @@
 -- Listar artilheiros -OK
 -- Listar lideres em assitencias - OK
 -- Listar lideres em cartões amarelos - OK
--- Listar lideres em cartões amarelos - OK
+-- Listar lideres em cartões vermelhos - OK
 -- Listar jogadores com maior número de partidas jogadas - OK
 -- Exibe todas partidas - OK
 -- Exibe todas partidas de um determinado time - OK
