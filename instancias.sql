@@ -222,39 +222,71 @@ INSERT into dm VALUES(DEFAULT, 'Rompimento do tendão patelar do joelho direito'
 -- Rodada 1:
 -- Inter x Gremio (2x1)
 INSERT into partida VALUES(DEFAULT, '2020-04-09', '16:00:00', 2, 1, 2, 1, 2, 100001, 111111, 222222, 444444);
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 1 ,cartoes_amarelos = cartoes_amarelos + 3 , cartoes_vermelhos = cartoes_vermelhos + 1 WHERE id_time = 2;
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 2 ,cartoes_amarelos = cartoes_amarelos + 3 , cartoes_vermelhos = cartoes_vermelhos + 1 WHERE id_time = 1;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 3, 3, 1, 1, 1, 1, 4, 5, 50000, 1);
 -- Flamengo x São Paulo (4x1)
 INSERT into partida VALUES(DEFAULT, '2020-04-09', '17:00:00', 4, 1, 3, 3, 3, 333333, 555555, 666666, 777777);
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 4 , gols_contra = gols_contra + 1  WHERE id_time = 3;
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 4 WHERE id_time = 4;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 6000, 2);
 
 -- Rodada 2:
 -- Inter x Flamengo (2x2)
 INSERT into partida VALUES(DEFAULT, '2020-04-19', '18:00:00', 2, 2, 2, 3, 2, 111111, 100001, 222222, 444444);
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 2 WHERE id_time = 2;
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 2 WHERE id_time = 3;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 7000, 3);
 -- Grêmio x São Paulo (1x2)
 INSERT into partida VALUES(DEFAULT, '2020-04-19', '19:00:00', 1, 2, 2, 4, 1, 555555, 333333, 666666, 777777);
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 2 WHERE id_time = 1;
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 1 WHERE id_time = 4;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 8000, 4);
 
 -- Rodada 3:
 -- Inter x São Paulo (1x1)
 INSERT into partida VALUES(DEFAULT, '2020-04-29', '20:00:00', 1, 1, 2, 4, 2, 222222, 111111, 100001, 444444);
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 1 WHERE id_time = 2;
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 1 WHERE id_time = 4;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 9000, 5);
 -- Grêmio x Flamengo (2x4)
 INSERT into partida VALUES(DEFAULT, '2020-04-29', '21:00:00', 2, 4, 1, 3, 1, 666666, 333333, 555555, 777777);
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 4 WHERE id_time = 1;
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 4 , gols_contra = gols_contra + 2 WHERE id_time = 3;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 10000, 6);
 
 -- Rodada 4:
 -- Gremio x Inter (1x1)
 INSERT into partida VALUES(DEFAULT, '2020-05-09', '22:00:00', 1, 1, 1, 2, 1, 100001, 111111, 222222, 444444);
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 1 WHERE id_time = 1;
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 1 WHERE id_time = 2;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 60000, 7);
 -- São Paulo x Flamengo (2x1)
 INSERT into partida VALUES(DEFAULT, '2020-05-09', '10:00:00', 2, 1, 3, 4, 4, 777777, 666666, 555555, 333333);
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 1 WHERE id_time = 4;
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 2 WHERE id_time = 3;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 11000, 8);
 
 -- Rodada 5:
 -- Flamengo x Inter (2x1)
 INSERT into partida VALUES(DEFAULT, '2020-05-19', '11:00:00', 2, 1, 3, 2, 3, 444444, 111111, 222222, 100001);
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 2 , gols_contra = gols_contra + 1 WHERE id_time = 3;
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 2 WHERE id_time = 2;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 12000, 9);
 -- São Paulo x Grêmio (0x0)
 INSERT into partida VALUES(DEFAULT, '2020-05-19', '14:00:00', 0, 0, 4, 1, 4, 555555, 333333, 666666, 777777);
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 WHERE id_time = 4;
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 WHERE id_time = 1;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 13000, 10);
 
 -- Rodada 6:
 -- São Paulo x Inter (1x5)
-INSERT into partida VALUES(DEFAULT, '2020-05-29', '15:00:00', 5, 0, 4, 2, 4, 222222, 111111, 100001, 444444);
+INSERT into partida VALUES(DEFAULT, '2020-05-29', '15:00:00', 1, 5, 4, 2, 4, 222222, 111111, 100001, 444444);
+UPDATE Time SET partidas = partidas + 1, derrotas = derrotas + 1, gols_pro = gols_pro + 1 , gols_contra = gols_contra + 5 WHERE id_time = 4;
+UPDATE Time SET pontuacao = pontuacao + 3, partidas = partidas + 1, vitorias = vitorias + 1 ,gols_pro = gols_pro + 5 , gols_contra = gols_contra + 1 WHERE id_time = 2;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 14000, 11);
 -- Flamengo x Grêmio (1x1)
-INSERT into partida VALUES(DEFAULT, '2020-05-29', '08:00:00', 5, 0, 3, 1, 3, 333333, 555555, 666666, 777777);
-
-INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 2, 4, 0, 0, 1, 1, 4, 5, 6000, 1);
-INSERT into estatisticas (id_partida) VALUES(2);
-INSERT into estatisticas (id_partida) VALUES(3);
+INSERT into partida VALUES(DEFAULT, '2020-05-29', '08:00:00', 1, 1, 3, 1, 3, 333333, 555555, 666666, 777777);
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 1 WHERE id_time = 3;
+UPDATE Time SET pontuacao = pontuacao + 1, partidas = partidas + 1, empates = empates + 1 ,gols_pro = gols_pro + 1 , gols_contra = gols_contra + 1 WHERE id_time = 1;
+INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 0, 0, 0, 0, 1, 1, 4, 5, 15000, 12);

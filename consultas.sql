@@ -55,7 +55,7 @@ SELECT DT.nome , count(PART.id_partida), (SUM(EST.cartoes_vermelhos_mand) + SUM(
 
 -- Consultas Extras para funcionalidades basicas
 -- Exibe classificação do campeonato
-SELECT nome, pontuacao, partidas, vitorias, empates, derrotas, cartoes_amarelos, cartoes_vermelhos, gols_pro, gols_contra from "time" ORDER BY pontuacao, vitorias, empates, gols_pro DESC;
+SELECT nome, pontuacao, partidas, vitorias, empates, derrotas, cartoes_amarelos, cartoes_vermelhos, gols_pro, gols_contra from "time" ORDER BY pontuacao DESC;
 
 -- Exibe classificação de artilheiros
 SELECT D.nome, T.nome, D.gols from dadosjogador D INNER JOIN "time" t ON t.id_time = D.id_time ORDER BY gols DESC;
