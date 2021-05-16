@@ -217,6 +217,38 @@ INSERT into dm VALUES(DEFAULT, 'Quebra do quinto metatarso', '2019-07-02', 50, 2
 INSERT into dm VALUES(DEFAULT, 'Quebra do quinto metatarso', '2019-07-02', 150, 47);
 INSERT into dm VALUES(DEFAULT, 'Rompimento do tendão patelar do joelho direito', '2016-05-28', 500, 48);
 
+-- Partidas
+
+-- Rodada 1:
+-- Inter x Gremio
+
+-- Flamengo x São Paulo
+
+-- Rodada 2:
+-- Inter x Flamengo
+
+-- Grêmio x São Paulo
+
+-- Rodada 3:
+-- Inter x São Paulo
+
+-- Grêmio x Flamengo
+
+-- Rodada 4:
+-- Gremio x Inter
+
+-- São Paulo x Flamengo
+
+-- Rodada 5:
+-- Flamengo x Inter
+
+-- São Paulo x Grêmio
+
+-- Rodada 6:
+-- São Paulo x Inter
+
+-- Flamengo x Grêmio
+
 INSERT into partida VALUES(DEFAULT, '2015-08-09', '16:00:00', 5, 0, 1, 2, 1, 123456, 654321, 121212, NULL); -- GrêmioxInter
 INSERT into partida VALUES(DEFAULT, '2020-07-05', '18:30:00', 2, 1, 1, 3, 1, 121212, 654321, 123456, NULL); -- GrêmioxFlamengo
 INSERT into partida VALUES(DEFAULT, '2019-06-30', '21:30:00', 3, 0, 3, 2, 3, 654321, 121212, 123456, NULL); -- FlamengoxInter
