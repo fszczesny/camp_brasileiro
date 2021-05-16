@@ -220,38 +220,40 @@ INSERT into dm VALUES(DEFAULT, 'Rompimento do tendão patelar do joelho direito'
 -- Partidas
 
 -- Rodada 1:
--- Inter x Gremio
-
--- Flamengo x São Paulo
+-- Inter x Gremio (2x1)
+INSERT into partida VALUES(DEFAULT, '2020-04-09', '16:00:00', 2, 1, 2, 1, 2, 100001, 111111, 222222, 444444);
+-- Flamengo x São Paulo (4x1)
+INSERT into partida VALUES(DEFAULT, '2020-04-09', '17:00:00', 4, 1, 3, 3, 3, 333333, 555555, 666666, 777777);
 
 -- Rodada 2:
--- Inter x Flamengo
-
--- Grêmio x São Paulo
+-- Inter x Flamengo (2x2)
+INSERT into partida VALUES(DEFAULT, '2020-04-19', '18:00:00', 2, 2, 2, 3, 2, 111111, 100001, 222222, 444444);
+-- Grêmio x São Paulo (1x2)
+INSERT into partida VALUES(DEFAULT, '2020-04-19', '19:00:00', 1, 2, 2, 4, 1, 555555, 333333, 666666, 777777);
 
 -- Rodada 3:
--- Inter x São Paulo
-
--- Grêmio x Flamengo
+-- Inter x São Paulo (1x1)
+INSERT into partida VALUES(DEFAULT, '2020-04-29', '20:00:00', 1, 1, 2, 4, 2, 222222, 111111, 100001, 444444);
+-- Grêmio x Flamengo (2x4)
+INSERT into partida VALUES(DEFAULT, '2020-04-29', '21:00:00', 2, 4, 1, 3, 1, 666666, 333333, 555555, 777777);
 
 -- Rodada 4:
--- Gremio x Inter
-
--- São Paulo x Flamengo
+-- Gremio x Inter (1x1)
+INSERT into partida VALUES(DEFAULT, '2020-05-09', '22:00:00', 1, 1, 1, 2, 1, 100001, 111111, 222222, 444444);
+-- São Paulo x Flamengo (2x1)
+INSERT into partida VALUES(DEFAULT, '2020-05-09', '10:00:00', 2, 1, 3, 4, 4, 777777, 666666, 555555, 333333);
 
 -- Rodada 5:
--- Flamengo x Inter
-
--- São Paulo x Grêmio
+-- Flamengo x Inter (2x1)
+INSERT into partida VALUES(DEFAULT, '2020-05-19', '11:00:00', 2, 1, 3, 2, 3, 444444, 111111, 222222, 100001);
+-- São Paulo x Grêmio (0x0)
+INSERT into partida VALUES(DEFAULT, '2020-05-19', '14:00:00', 0, 0, 4, 1, 4, 555555, 333333, 666666, 777777);
 
 -- Rodada 6:
--- São Paulo x Inter
-
--- Flamengo x Grêmio
-
-INSERT into partida VALUES(DEFAULT, '2015-08-09', '16:00:00', 5, 0, 1, 2, 1, 123456, 654321, 121212, NULL); -- GrêmioxInter
-INSERT into partida VALUES(DEFAULT, '2020-07-05', '18:30:00', 2, 1, 1, 3, 1, 121212, 654321, 123456, NULL); -- GrêmioxFlamengo
-INSERT into partida VALUES(DEFAULT, '2019-06-30', '21:30:00', 3, 0, 3, 2, 3, 654321, 121212, 123456, NULL); -- FlamengoxInter
+-- São Paulo x Inter (1x5)
+INSERT into partida VALUES(DEFAULT, '2020-05-29', '15:00:00', 5, 0, 4, 2, 4, 222222, 111111, 100001, 444444);
+-- Flamengo x Grêmio (1x1)
+INSERT into partida VALUES(DEFAULT, '2020-05-29', '08:00:00', 5, 0, 3, 1, 3, 333333, 555555, 666666, 777777);
 
 INSERT into estatisticas VALUES(DEFAULT, 15, 11, 7, 3, 49, 51, 443, 371, 90, 88, 16, 11, 2, 4, 0, 0, 1, 1, 4, 5, 6000, 1);
 INSERT into estatisticas (id_partida) VALUES(2);
