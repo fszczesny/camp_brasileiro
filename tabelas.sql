@@ -1,7 +1,7 @@
-drop view DadosJogador;
-drop view DadosTecnico;
-drop view DadosAuxiliarTecnico;
-drop view DadosArbrito;
+drop view if EXISTS DadosJogador;
+drop view if EXISTS DadosTecnico;
+drop view if EXISTS DadosAuxiliarTecnico;
+drop view if EXISTS DadosArbrito;
 drop table if EXISTS estatisticas;
 drop table if EXISTS partida;
 drop table if EXISTS dm;
