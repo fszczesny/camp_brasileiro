@@ -21,6 +21,29 @@
 -- Lista arbitros - OK
 -- Gera estatisticas dos arbitros (numero de partidas apitadas, numero de cartões vermelhos dados, numero de cartões amarelos dados) - OK
 
+-- Cria view com dados dos jogadores
+CREATE VIEW DadosJogador AS 
+	SELECT * FROM jogador 
+    	JOIN futebolista USING (id_futebolista)
+        JOIN pessoa ON futebolista.id_pessoa = pessoa.cpf;
+
+-- Cria view com dados dos tecnicos
+CREATE VIEW DadosTecnico AS 
+	SELECT * FROM Tecnico
+    	JOIN futebolista USING (id_futebolista)
+        JOIN pessoa ON futebolista.id_pessoa = pessoa.cpf;
+
+-- Cria view com dados dos auxiliares tecnicos
+CREATE VIEW DadosAuxiliarTecnico  AS 
+	SELECT * FROM AuxiliarTecnico  
+    	JOIN futebolista USING (id_futebolista)
+        JOIN pessoa ON futebolista.id_pessoa = pessoa.cpf;
+
+-- Cria view com dados dos arbritos
+CREATE VIEW DadosArbrito AS 
+	SELECT * FROM Arbitro 
+        JOIN pessoa ON Arbitro.id_pessoa = pessoa.cpf;
+
 -- 10 consultas requeridas pela especificação do trabalho
 -- Retorna nome do time e número de jogadores no DM
 SELECT T.nome, count(D.nome) FROM dadosjogador D INNER JOIN "time" T ON D.id_time = T.id_time NATURAL JOIN dm GROUP BY T.id_time;
