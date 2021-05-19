@@ -31,8 +31,9 @@ SELECT T.nome FROM dadosjogador D INNER JOIN "time" T ON D.id_time = T.id_time N
 -- Retorna os jogadores de determinado time no DM
 SELECT DJ.nome, DP.lesao, DP.data_lesao, DP.previsao_dias FROM dm DP INNER JOIN dadosjogador DJ ON DJ.id_jogador = DP.id_jogador INNER JOIN "time" T on T.id_time = DJ.id_time WHERE t.nome = 'Grêmio';
 
--- Retorna os dados das partidas que tiveram jogadores expulsos
-SELECT * FROM partida NATURAL JOIN estatisticas WHERE cartoes_vermelhos_mand <> 0 OR cartoes_vermelhos_visit <> 0;
+-- Retorna o nome dos times que jogaram em todos os estádios que o Grêmio jogou 
+  array_push($consultas, "SELECT T.nome FROM time T WHERE T.id_time <> 1 AND NOT EXISTS(SELECT * FROM partida P WHERE (P.time_mandante = 1 OR P.time_visitante = 1) AND P.id_estadio NOT IN (SELECT DISTINCT id_estadio FROM partida WHERE time_mandante = T.id_time OR time_visitante = T.id_time))");
+
 
 -- Retorna publico das partidas data, nome dos times e ordena por publico crescente
 SELECT ES.apelido, E.publico, T1.nome, T2.nome, P.data_partida FROM estatisticas E INNER JOIN partida P ON P.id_partida = E.id_partida INNER JOIN estadio ES ON ES.id_estadio = P.id_estadio INNER JOIN "time" T1 on T1.id_time = P.time_mandante INNER JOIN "time" T2 ON T2.id_time = p.time_visitante ORDER BY E..publico DESC;
