@@ -46,8 +46,8 @@
   // Retorna nome do time com mais de N = 2 jogadores no DM
   array_push($consultas, "SELECT T.nome FROM dadosjogador D INNER JOIN time T ON D.id_time = T.id_time NATURAL JOIN dm m GROUP BY T.id_time HAVING COUNT(D.nome) >= 2");
 
-  // Retorna os dados das partidas que tiveram jogadores expulsos
-  array_push($consultas, "SELECT * FROM partida NATURAL JOIN estatisticas WHERE cartoes_vermelhos_mand <> 0 OR cartoes_vermelhos_visit <> 0");
+  // Os times que jogaram em todos os estádios que o Grêmio jogou 
+  array_push($consultas, "SELECT T.nome FROM time T WHERE T.id_time <> 1 AND NOT EXISTS(SELECT * FROM partida P WHERE (P.time_mandante = 1 OR P.time_visitante = 1) AND P.id_estadio NOT IN (SELECT DISTINCT id_estadio FROM partida WHERE time_mandante = T.id_time OR time_visitante = T.id_time))");
 
   // Retorna publico das partidas data, nome dos times e ordena por publico crescente
   array_push($consultas, "SELECT ES.apelido, E.publico, T1.nome as Mandante, T2.nome as Visitante, P.data_partida FROM estatisticas E INNER JOIN partida P ON P.id_partida = E.id_partida INNER JOIN estadio ES ON ES.id_estadio = P.id_estadio INNER JOIN time T1 on T1.id_time = P.time_mandante INNER JOIN time T2 ON T2.id_time = p.time_visitante ORDER BY E.publico DESC");
@@ -64,7 +64,7 @@
   $informacaoConsultas = [];
   array_push($informacaoConsultas, "Nome do time e número de jogadores no DM");
   array_push($informacaoConsultas, "Nome do time com mais de 2 jogadores no DM");
-  array_push($informacaoConsultas, "Retorna os dados das partidas que tiveram jogadores expulsos");
+  array_push($informacaoConsultas, "Times que jogaram em todos os estádios que o Grêmio jogou");
   array_push($informacaoConsultas, "Retorna publico das partidas data, nome dos times e ordena por publico crescente");
   array_push($informacaoConsultas, "Exibe historico de partidas");
   array_push($informacaoConsultas, "Retorna times que ganharam fora e numero de vitorias");
@@ -73,14 +73,24 @@
 ?>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
-      table, th, td {
-        border: 1px solid black;
-        text-align: right;
+      .page {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        margin: 10px;
+      }
+      .table {
+        table-layout: auto;
+        width: 90%;
+        align-self: center;
       }
     </style>
   </head>
   <body>
+    <div class="page">
     <?php
       foreach ($consultasDinamicas as $key => $consulta) {
         $primeira_linha = true;
@@ -92,7 +102,7 @@
           <input type="submit" value="Pesquisar">
         </form>
         <?php
-        echo "<table>";
+        echo "<table class='table table-dark'>";
         while ($row = pg_fetch_array($result)) {
           if ($primeira_linha) {
             echo "<tr>";
@@ -121,7 +131,7 @@
         $primeira_linha = true;
         $result = pg_query($conexao, $consulta);
         echo "<p>".$informacaoConsultas[$key]."</p>";
-        echo "<table>";
+        echo "<table class='table table-dark'>";
         while ($row = pg_fetch_array($result)) {
           if ($primeira_linha) {
             echo "<tr>";
@@ -144,5 +154,6 @@
         echo "</table><br><hr>";
       }
     ?>   
+    </div>
   </body>
 </html>
